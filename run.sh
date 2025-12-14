@@ -4,6 +4,19 @@
 
 set -e
 
+# Cleanup function to kill Xvfb if we started it
+XVFB_PID=""
+cleanup() {
+    if [ ! -z "$XVFB_PID" ]; then
+        echo ""
+        echo "🧹 Cleaning up Xvfb process (PID: $XVFB_PID)..."
+        kill $XVFB_PID 2>/dev/null || true
+    fi
+}
+
+# Set trap to cleanup on exit
+trap cleanup EXIT INT TERM
+
 echo "🚀 Starting Cheating Daddy Application..."
 echo ""
 

@@ -31,7 +31,7 @@ A real-time AI assistant that provides contextual help during video calls, inter
 2. **Install Dependencies**: `npm install`
 3. **Run the App**: 
    - Standard: `npm start`
-   - Using the provided script: `./run.sh` (handles headless environments automatically)
+   - Using the provided script: `chmod +x run.sh && ./run.sh` (handles headless environments automatically)
 
 ## Usage
 
@@ -59,7 +59,7 @@ A real-time AI assistant that provides contextual help during video calls, inter
 For running in headless environments (e.g., CI/CD pipelines, servers without displays):
 
 1. **Install Xvfb**: `sudo apt-get install xvfb`
-2. **Use the provided script**: `./run.sh` (automatically detects headless environment)
+2. **Make the script executable and run it**: `chmod +x run.sh && ./run.sh` (automatically detects headless environment)
 3. **Or manually set environment variables**:
    ```bash
    export DISPLAY=:99
