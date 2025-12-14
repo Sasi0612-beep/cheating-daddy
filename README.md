@@ -29,7 +29,9 @@ A real-time AI assistant that provides contextual help during video calls, inter
 
 1. **Get a Gemini API Key**: Visit [Google AI Studio](https://aistudio.google.com/apikey)
 2. **Install Dependencies**: `npm install`
-3. **Run the App**: `npm start`
+3. **Run the App**: 
+   - Standard: `npm start`
+   - Using the provided script: `chmod +x run.sh && ./run.sh` (handles headless environments automatically)
 
 ## Usage
 
@@ -51,6 +53,22 @@ A real-time AI assistant that provides contextual help during video calls, inter
 - **macOS**: [SystemAudioDump](https://github.com/Mohammed-Yasin-Mulla/Sound) for system audio
 - **Windows**: Loopback audio capture
 - **Linux**: Microphone input
+
+## Running in Headless/CI Environments
+
+For running in headless environments (e.g., CI/CD pipelines, servers without displays):
+
+1. **Install Xvfb**: `sudo apt-get install xvfb`
+2. **Make the script executable and run it**: `chmod +x run.sh && ./run.sh` (automatically detects headless environment)
+3. **Or manually set environment variables**:
+   ```bash
+   export DISPLAY=:99
+   export ELECTRON_DISABLE_SANDBOX=1
+   Xvfb :99 -screen 0 1024x768x24 &
+   npm start
+   ```
+
+The run script handles all this automatically and is recommended for CI/CD pipelines.
 
 ## Requirements
 
